@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<span>当前时间@(DateTime.Now)</span>
+<hr />
+
+<!--不走子ACTION,设置子Action的OutputCache没有效果，直接走本页面Action的OutputCache设置-->
+<span>partial a2:</span><br />
+@(Html.Partial("A2"))
+<hr />
+
+@{
+    <span>RenderPartial a2:</span><br />
+    Html.RenderPartial("A2");
+    <hr />
+}
+
+<!--以本页面缓存为主，只有在本页面缓存过期时才会重新读取子Action，
+    主页面加载时判断子Action缓存是否过期，如果不过期就等下一次主页面加载-->
+<span>action a2:</span><br />
+@(Html.Action("A2"))
+<hr />
+
+@{
+    <span>RenderAction a2:</span><br />
+    Html.RenderAction("A2");
+}
+
+
+
+@{
+    Html.RenderPartial("_HelperDemo");
+  
+    Html.RenderPartial("_FunctionDemo");
+}

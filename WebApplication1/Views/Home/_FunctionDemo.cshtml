@@ -1,0 +1,19 @@
+﻿@using System.Text;
+@functions
+{
+    public static HtmlString bar(int i)
+    {
+        StringBuilder html = new StringBuilder();
+        for (int k = 0; k < i; k++)
+        {
+            html.Append(k + "<br />");
+        }
+
+        return new HtmlString(html.ToString());
+    }
+}
+<!--functions相当于纯C#代码-->
+<div>
+    <span>functions demo</span>
+    @bar(4)
+</div>

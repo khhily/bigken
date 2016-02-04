@@ -1,0 +1,12 @@
+﻿@helper foo(int i)
+{
+    for (int j = 0; j < i; j++)
+    {
+        @(j)<br />
+    }
+}
+<!--helper中可以混有html代码-->
+<div>
+    <span>helper demo</span>
+    @foo(4)
+</div>
